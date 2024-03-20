@@ -1,0 +1,1 @@
+(()=>{delete window.fetch,delete window.XMLHttpRequest,delete window.eval,parent.document;const e=document.body.attachShadow({mode:"open"}),t=document.createElement("iframe");var d;e.appendChild(t),t.src=`t/${atob((d="[name=sid]",document.querySelector(d)).content)}:${uuid}`,t.style.border="none",t.width="100%",t.height="100%"})();
