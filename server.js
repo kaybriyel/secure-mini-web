@@ -35,8 +35,9 @@ app.get('/V2hhdCB5YSBnb25uYSBkbz8=', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('running...')
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log('running at port', port)
 })
 
 function html(content = '', token = '') {
