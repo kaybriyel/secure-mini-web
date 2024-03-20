@@ -15,7 +15,7 @@ app.get('/t/:id', (req, res) => {
         return res.format({
             'text/html'() {
                 keys.delete(key)
-                res.send(html('<div><h2>🎉🥳 You have accessed 🥳🎉<h2><h4>Try accessing the above content via API or Postman to win $20</h2></div>'))
+                res.send(html(success()))
             }
         })
     }
@@ -79,5 +79,19 @@ function html(content = '', token = '') {
     ${content}
 </body>
 </html>
+    `.trim()
+}
+
+function success() {
+    return `
+<div>
+    <h2>🎉🥳 You have accessed 🥳🎉<h2>
+    <h4>Try accessing the above content via API or Postman to win $20</h2>
+</div>
+<script>
+delete fetch
+delete eval
+delete XMLHttpRequest
+</script>
     `.trim()
 }
