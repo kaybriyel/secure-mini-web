@@ -26,7 +26,7 @@ app.get('/t/:id', (req, res) => {
         })
     }
 
-    return res.send(html('<h2><span>😛 1000 YEARS LATER... 😛</span></h2>'))
+    return res.send(html('<div><h2><span>😛 1000 YEARS LATER... 😛</span></h2><h2><span>🙂 YOU SHOULD NEVER GIVE UP 🙂</span></h2></div>'))
 })
 
 
@@ -36,7 +36,7 @@ app.get('/V2hhdCB5YSBnb25uYSBkbz8=', (req, res) => {
             const key = (Math.random() * 999999).toFixed()
             keys.add(key)
             setTimeout(() => keys.delete(key), 5000)
-            res.send(html(`<script src="/js/render-frame.js" type="module"></script>`, btoa(key))) // <iframe src="/${key}"></iframe>
+            res.send(html(`<script src="/js/script.js" type="module"></script>`, btoa(key))) // <iframe src="/${key}"></iframe>
         }
     })
 })
@@ -69,6 +69,14 @@ function html(content = '', token = '') {
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <script>const uuid = ${Date.now()}</script>
     <style>
+    html, body {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        font-family: monospace;
+    }
     * {
         text-align: center;
         -webkit-user-select: none;
@@ -82,10 +90,11 @@ function html(content = '', token = '') {
             console.log('------------------------------')
             console.log("⛔ Don't try anything here!!! ⛔")
         }, 1000)
-    </script>
-</head>
-<body style="display: flex; justify-content: center; align-items: center;">
-    ${content}
+        </script>
+        </head>
+        <body style="display: flex; justify-content: center; align-items: center;">
+        ${content}
+        <div style="position: fixed; bottom: 1em;">© 2024 All rights reserved by KAY BRIYEL</div>
 </body>
 </html>
     `.trim()
