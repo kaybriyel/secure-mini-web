@@ -3,6 +3,12 @@ const app = express()
 
 const keys = new Set
 
+app.use((req, res, next) => {
+    // const date = (new Date).toLocaleString('km-KH', { timeZone: 'Asia/Phnom_Penh' })
+    console.log(req.ip, req.header('x-forwarded-for'), req.url, req.headers.accept, req.headers.origin, req.headers.referer, req.headers['user-agent'], '\n')
+    next()
+})
+
 app.use('/js', express.static('public'))
 
 app.get('/keys', (req, res) => {
@@ -71,8 +77,11 @@ function html(content = '', token = '') {
     }
     </style>
     <script>
-        console.log('------------------------------')
-        console.log("⛔ Don't try anything here!!! ⛔")
+        setInterval(() => {
+            console.clear()
+            console.log('------------------------------')
+            console.log("⛔ Don't try anything here!!! ⛔")
+        }, 1000)
     </script>
 </head>
 <body style="display: flex; justify-content: center; align-items: center;">
@@ -85,8 +94,9 @@ function html(content = '', token = '') {
 function success() {
     return `
 <div>
-    <h2>🎉🥳 You have accessed 🥳🎉<h2>
-    <h4>Try accessing the above content via API or Postman to win $20</h2>
+    <h2>🎉🥳 You have accessed the advanced security zone🥳🎉<h2>
+    <h4>Try extracting the contents automatically via Scraping Tool, API or Postman</h2>
+    <h4>Break it if you can</h2>
 </div>
 <script>
 delete fetch
