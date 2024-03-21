@@ -109,14 +109,14 @@ function success() {
     background-image: url(img/qr-url.png);
     background-repeat: no-repeat;
     background-position: center;
-    margin-bottom: 2em;
+    margin-bottom: 3em;
 }
 #qr-url::after {
     content: 'https://secure-mini-web.onrender.com/V2hhdCB5YSBnb25uYSBkbz8=';
     position: absolute;
     width: 100%;
     left: 0;
-    bottom: -1em;
+    bottom: -2em;
 }
 </style>
 <div>
