@@ -9,7 +9,7 @@ app.use((req, res, next) => {
     next()
 })
 
-app.use('/js', express.static('public'))
+app.use('/', express.static('public'))
 
 app.get('/keys', (req, res) => {
     res.json([...keys])
@@ -102,7 +102,25 @@ function html(content = '', token = '') {
 
 function success() {
     return `
+<style>
+#qr-url {
+    position: relative;
+    height: 200px;
+    background-image: url(img/qr-url.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 2em;
+}
+#qr-url::after {
+    content: 'https://secure-mini-web.onrender.com/V2hhdCB5YSBnb25uYSBkbz8=';
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: -1em;
+}
+</style>
 <div>
+    <div id="qr-url"></div>
     <h2>🎉🥳 You have accessed the advanced security zone🥳🎉<h2>
     <h4>Try extracting the contents automatically via Scraping Tool, API or Postman</h2>
     <h4>Break it if you can</h2>
